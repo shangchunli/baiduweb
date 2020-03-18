@@ -18,6 +18,16 @@ module.exports = function(grunt) {
                     'dist/baidu.js':'./baidu.js'
                 }
             }
+        },
+        copy: {
+            html: {
+                src: "./index.html", 
+                dest: "./dist/index.html"
+            },
+            css: {
+                src: "./index.css",
+                dest: "./dist/index.css"
+            }
         }
     })
 
@@ -27,4 +37,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
 
     grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify']);
+    grunt.registerTask("release", ['copy', 'htmlmin']);
 }
